@@ -1,0 +1,15 @@
+# get_next_line (42Porto - 42Cursus) <img src="https://github.com/devicons/devicon/blob/master/icons/c/c-original.svg" title="C" alt="C Logo" width="55" height="55" align="right" />&nbsp;                       
+## Grade: ?/100
+
+###  Subject:
+[get_next_line En_Subject](https://github.com/Kuninoto/Libft/blob/master/extras/en.subject_get_next_line.pdf)
+
+### Installing and running the project:
+
+#### Makefile Available Targets:    
+
+###  Tests: 
+
+---
+Made by Nuno Carvalho (Kuninoto) | nnuno-ca@student.42porto.com  
+<div id="badge"> <a href="https://www.linkedin.com/in/nuno-carvalho-218822247"/> <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>&nbsp;
