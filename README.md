@@ -4,10 +4,8 @@
 ###  Subject:
 [get_next_line En_Subject](https://github.com/Kuninoto/42_get_next_line/blob/master/extras/en.subject_get_next_line.pdf)
 
-### Installing and running the project:
-
-#### Makefile Available Targets:    
-
+### Using get_next_line():
+  
 ###  Tests: 
 
 ---
