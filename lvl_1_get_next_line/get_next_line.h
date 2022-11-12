@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 00:47:03 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/11/07 00:46:01 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/11/12 01:54:51 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 # define GET_NEXT_LINE_H
 
 # include <stdlib.h>
+# include <unistd.h>
+# include <stdbool.h>
 
-# define ARRAY_MAX_SIZE 4096
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 10
+# endif 
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
-void	copy_until_null(const char *src, char *dest);
+size_t	ft_strchr(const char *str, int c);
+char	*join_n_free(char *global_buf, char *buff);
+void	*ft_calloc(size_t nitems, size_t size);
 
 #endif

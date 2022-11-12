@@ -5,96 +5,130 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 00:47:06 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/11/07 00:51:48 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/11/10 21:52:05 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/11/12 01:48:13 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <unistd.h>
 
-/* #define dummy_nr_strings 10
+char	*clean_printed(char *global_buf)
+{
+	size_t	i;
+	size_t	j;
+	char	*new_global;
 
-#include <stdio.h>
-#include <fcntl.h> */
+	i = 0;
+	j = 0;
+	while (global_buf[i] && global_buf[i] != '\n')
+		i++;
+	if (!global_buf[i])
+	{
+		free(global_buf);
+		return (NULL);
+	}
+	new_global = malloc(((ft_strlen(global_buf) - i) + 1) * sizeof(char));
+	if (!new_global)
+		return (NULL);
+	i++;
+	j = 0;
+	while (global_buf[i])
+		new_global[j++] = global_buf[i++];
+	new_global[j] = '\0';
+	free(global_buf);
+	return (new_global);
+}
+
+char	*get_line(char *global_buf)
+{
+	size_t	len;
+	size_t	i;
+	char	*line;
+
+	len = 0;
+	i = 0;
+	if (!global_buf)
+		return (NULL);
+	while (global_buf[len] != '\n' && global_buf[len])
+		len++;
+	line = malloc((len + 2) * sizeof(char));
+	if (!line)
+		return (NULL);
+	while (i <= len)
+	{
+		line[i] = global_buf[i];
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+char	*join_n_free(char *global_buf, char *buff)
+{
+	size_t	len_s1;
+	size_t	len_s2;
+	char	*final_str;
+	size_t	i;
+	size_t	j;
+
+	if (!global_buf || !buff)
+		return (NULL);
+	len_s1 = ft_strlen(global_buf);
+	len_s2 = ft_strlen(buff);
+	final_str = malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	if (final_str == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (j < len_s1)
+		final_str[i++] = global_buf[j++];
+	j = 0;
+	while (j < len_s2)
+		final_str[i++] = buff[j++];
+	final_str[i] = '\0';
+	free(global_buf);
+	return (final_str);
+}
+
+char	*read_buffsize(int fd, char *global_buffer)
+{
+	int		bytes_read;
+	char	*buffer;
+	
+	if (global_buffer == NULL)
+		global_buffer = ft_calloc(1, sizeof(char));
+	bytes_read = 1;
+	buffer = malloc(BUFFER_SIZE * sizeof(char));
+	if (!buffer)
+		return (NULL);
+	while (bytes_read > 0)
+	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read == -1)
+		{
+			free (buffer);
+			return (NULL);
+		}
+		buffer[bytes_read] = '\0';
+		global_buffer = join_n_free(global_buffer, buffer);
+		if (ft_strchr(global_buffer, '\n') != 0)
+			break ;
+	}
+	free(buffer);
+	return (global_buffer);
+}
 
 char	*get_next_line(int fd)
 {
-	char	buffer[1];
-	char	line[ARRAY_MAX_SIZE];
-	char	*malloced_line;
-	int		read_status;
-	/* static */ size_t	i;
-
-	if (fd < 0)
+	static char	*global_buffer;
+	char		*line;
+	
+	if (fd < 0 || read(fd, NULL, 0) != 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer[0] = '\0';
-	i = 0;
-	while (buffer[0] != '\n')
-	{
-		read_status = read(fd, buffer, 1);
-		if (read_status == -1)
-			return (NULL);
-		else if (read_status == 0)
-			break ;
-		line[i++] = buffer[0];
-	}
-	line[i] = '\0';
-	malloced_line = malloc(ft_strlen(line) * sizeof(char));
-	copy_until_null(line, malloced_line);
-	return (malloced_line);
+	global_buffer = read_buffsize(fd, global_buffer);
+	if (!global_buffer)
+		return (NULL);
+	line = get_line(global_buffer);
+	global_buffer = clean_printed(global_buffer);
+	return (line);
 }
-
-/* // MANDATORY MAIN
-int main(void)
-{
-// STDIN test
-
-	char *read_stdin = get_next_line(STDIN_FILENO);
-	
-	printf("LINE READ =  %s", read_stdin);
-	for (size_t i = 0; i < ft_strlen(read_stdin); i++)
-	{
-		if (read_stdin[i] == '\n')
-			printf("read_stdin[%ld] = '\\n'", i);
-		else
-			printf("read_stdin[%ld] = '%c'\n", i, read_stdin[i]);
-	}
-	printf("\n");
-
-	
-// One line file test
-	int txt_fd = open("test.txt", O_RDONLY);
-	char *read_txt = get_next_line(txt_fd);
-
-	printf("LINE READ =  %s\n", read_txt);
-	for (size_t i = 0; i < ft_strlen(read_txt); i++)
-	{
-		if (read_txt[i] == '\n')
-			printf("read_txt[%ld] = '\\n'", i);
-		else
-			printf("read_txt[%ld] = '%c'\n", i, read_txt[i]);
-	}
-	close(txt_fd);
-
-	
-// Multiple line File Test
-	int 	txt_fd = open("test.txt", O_RDONLY);
-	char	*line = get_next_line(txt_fd);
-	char	**matrix = malloc((dummy_nr_strings + 1) * sizeof(char *));
-	
-	int i = 0;
-	while (line[0] != '\0')
-	{
-		matrix[i++] = line;
-		line = get_next_line(txt_fd);
-		printf("i = %d\n", i);
-	}	
-	matrix[i] = NULL;
-
-	for (int j = 0; matrix[j] != NULL; j++)
-		printf("matrix[%d] = %s", j, matrix[j]);
-	close(txt_fd);
-
-	return (0);
-} */
