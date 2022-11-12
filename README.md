@@ -7,14 +7,15 @@
 ### Using get_next_line():
   
 ###  Tests: 
-[gnlTester](https://github.com/Tripouille/gnlTester)
-TIMEOUT_US=350000
+[gnlTester](https://github.com/Tripouille/gnlTester)  
+TIMEOUT_US=500000
 <img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_1.png" width="50%"/>
 <img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_2.png" width="50%"/>
 <img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_bonus.png" width="50%"/>  
 
-[gnl-station-tester](https://github.com/kodpe/gnl-station-tester)
-
+[gnl-station-tester](https://github.com/kodpe/gnl-station-tester)  
+<img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnl_station_1.png" width="50%"/>
+<img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnl_station_2.png" width="50%"/>
 
 ---
 Made by Nuno Carvalho (Kuninoto) | nnuno-ca@student.42porto.com  
