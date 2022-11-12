@@ -2,11 +2,19 @@
 ## Grade: ?/100
 
 ###  Subject:
-[get_next_line En_Subject](https://github.com/Kuninoto/42_get_next_line/blob/master/extras/en.subject_get_next_line.pdf)
+[get_next_line en_Subject](https://github.com/Kuninoto/42_get_next_line/blob/master/extras/en.subject_get_next_line.pdf)
 
 ### Using get_next_line():
   
 ###  Tests: 
+[gnlTester](https://github.com/Tripouille/gnlTester)
+TIMEOUT_US=350000
+<img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_1.png" width="50%"/>
+<img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_2.png" width="50%"/>
+<img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_bonus.png" width="50%"/>  
+
+[gnl-station-tester](https://github.com/kodpe/gnl-station-tester)
+
 
 ---
 Made by Nuno Carvalho (Kuninoto) | nnuno-ca@student.42porto.com  
