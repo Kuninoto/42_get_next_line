@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 00:47:06 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/11/12 20:46:34 by nnuno-ca         ###   ########.fr       */
+/*   Created: 2022/11/06 00:55:56 by nnuno-ca          #+#    #+#             */
+/*   Updated: 2022/11/12 20:47:01 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h" 
+#include "get_next_line_bonus.h"
 
 char	*clean_printed(char	*global_buffer)
 {
@@ -120,15 +120,15 @@ char	*read_buffsize(int fd, char *global_buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*global_buffer;
+	static char	*global_buffer[FOPEN_MAX];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	global_buffer = read_buffsize(fd, global_buffer);
-	if (!global_buffer)
+	global_buffer[fd] = read_buffsize(fd, global_buffer[fd]);
+	if (!global_buffer[fd])
 		return (NULL);
-	line = get_line(global_buffer);
-	global_buffer = clean_printed(global_buffer);
+	line = get_line(global_buffer[fd]);
+	global_buffer[fd] = clean_printed(global_buffer[fd]);
 	return (line);
 }
