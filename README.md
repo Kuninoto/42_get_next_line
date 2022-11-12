@@ -7,8 +7,7 @@
 ### Using get_next_line():
   
 ###  Tests: 
-[gnlTester](https://github.com/Tripouille/gnlTester)  
-TIMEOUT_US=500000
+[gnlTester](https://github.com/Tripouille/gnlTester) TIMEOUT_US=500000  
 <img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_1.png" width="50%"/>
 <img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_2.png" width="50%"/>
 <img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_bonus.png" width="50%"/>  
