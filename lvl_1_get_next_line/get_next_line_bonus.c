@@ -6,7 +6,7 @@
 /*   By: nnuno-ca <nnuno-ca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 00:55:56 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2022/11/12 20:47:01 by nnuno-ca         ###   ########.fr       */
+/*   Updated: 2022/11/12 22:37:04 by nnuno-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ char	*get_next_line(int fd)
 	static char	*global_buffer[FOPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > FOPEN_MAX || BUFFER_SIZE <= 0)
 		return (NULL);
 	global_buffer[fd] = read_buffsize(fd, global_buffer[fd]);
 	if (!global_buffer[fd])
