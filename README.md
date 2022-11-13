@@ -5,7 +5,7 @@
 [get_next_line en_subject](https://github.com/Kuninoto/42_get_next_line/blob/master/extras/en.subject_get_next_line.pdf)
   
 ### Why I think my bonus is right:
-The bonus is essentially a superset of the mandatory part, what differs on my implementation is the fact that my static variable is an array of strings instead of one string only. There's literally no reason for the Moulinette's error: *No use of BUFFER_SIZE*. (Which refers to the read() calls, if you don't use BUFFER_SIZE in every read() call you  make, you get this error). 
+The bonus is essentially a superset of the mandatory part, what differs on my implementation is the fact that my static variable is an array of strings instead of one string only. There's literally no reason for the Moulinette's error: *No use of BUFFER_SIZE*. (Which refers to the read() calls, if you don't use BUFFER_SIZE in every read() call you  make, you get this error). Well, this or it fails somewhere else and Moulinette throws the same message for every type of error on this exercise.
 ###  Tests: 
 [gnlTester](https://github.com/Tripouille/gnlTester) TIMEOUT_US=500000  
 <img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnlTester_1.png" width="50%"/>
