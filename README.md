@@ -1,5 +1,5 @@
 # get_next_line (42Porto - 42Cursus) <img src="https://github.com/devicons/devicon/blob/master/icons/c/c-original.svg" title="C" alt="C Logo" width="55" height="55" align="right" />&nbsp;                       
-## Grade: 112/100
+## Grade: 125/100
 
 ###  Subject:
 [get_next_line en_subject](https://github.com/Kuninoto/42_get_next_line/blob/master/extras/en.subject_get_next_line.pdf)
