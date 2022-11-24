@@ -12,7 +12,7 @@
 
 #include "get_next_line.h" 
 
-char	*clean_printed(char	*global_buffer)
+static char	*clean_printed(char	*global_buffer)
 {
 	size_t	i;
 	char	*new;
@@ -38,7 +38,7 @@ char	*clean_printed(char	*global_buffer)
 	return (new);
 }
 
-char	*get_line(char *global_buffer)
+static char	*get_line(char *global_buffer)
 {
 	size_t	len;
 	size_t	i;
@@ -62,7 +62,7 @@ char	*get_line(char *global_buffer)
 	return (line);
 }
 
-char	*join_n_free(char *global_buffer, char *local_buffer)
+static char	*join_n_free(char *global_buffer, char *local_buffer)
 {
 	size_t	len_global;
 	size_t	len_local;
@@ -89,7 +89,7 @@ char	*join_n_free(char *global_buffer, char *local_buffer)
 	return (appended);
 }
 
-char	*read_buffsize(int fd, char *global_buffer)
+static char	*read_buffsize(int fd, char *global_buffer)
 {
 	char	*buffer;
 	int		bytes_rd;
