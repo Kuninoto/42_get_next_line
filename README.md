@@ -2,7 +2,7 @@
 ## Grade: 125/100
 
 ###  Subject:
-[get_next_line en_subject](https://github.com/Kuninoto/42_get_next_line/blob/master/extras/en.subject_get_next_line.pdf)
+[get_next_line en_subject](./en.subject_get_next_line.pdf)
  
 ###  Tests: 
 [gnlTester](https://github.com/Tripouille/gnlTester) TIMEOUT_US=500000  
@@ -15,7 +15,7 @@
 <img src="https://github.com/Kuninoto/42_get_next_line/blob/master/extras/gnl_station_2.png" width="50%"/>
 
 ## Disclaimer
-> At [42School](https://en.wikipedia.org/wiki/42_(school)), almost every project must be written in accordance to the [Norm](.extras/en_norme.pdf), the schools' coding standard. As a result, the implementation of certain parts may appear strange and for sure had room for improvement.
+> At [42School](https://en.wikipedia.org/wiki/42_(school)), almost every project must be written in accordance to the [Norm](./extras/en_norme.pdf), the schools' coding standard. As a result, the implementation of certain parts may appear strange and for sure had room for improvement.
 
 ---
 Made by Nuno Carvalho (Kuninoto) | nnuno-ca@student.42porto.com  
