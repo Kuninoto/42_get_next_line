@@ -1,8 +1,7 @@
 # get_next_line (42Porto - 42Cursus) <img src="https://github.com/devicons/devicon/blob/master/icons/c/c-original.svg" title="C" alt="C Logo" width="55" height="55" align="right" />&nbsp;                       
 ## Grade: 125/100
 
-###  Subject:
-[get_next_line en_subject](./en.subject_get_next_line.pdf)
+###  Subject: [get_next_line en_subject](./en.subject_get_next_line.pdf)
  
 ###  Tests: 
 [gnlTester](https://github.com/Tripouille/gnlTester) TIMEOUT_US=500000  
